@@ -10,10 +10,20 @@ const Form = () => {
         {todo: 'todo 3'}
     ])
 
-
     const handleChange = e => setTodo({[e.target.name]: e.target.value})
-
-    const handleClick = e => console.log('click click')
+    const handleClick = e => {
+        if(Object.keys(todo).length === 0 || todo.todo.trim() === '') {
+            alert('el campo no puede estar vacio')
+            return
+        }
+        setTodos([...todos, todo])
+    }
+    
+    const deleteTodo = indice => {
+        const newTodos = [...todos]
+        newTodos.splice(indice, 1)
+        setTodos(newTodos)
+    }
 
     return (
         <>
@@ -23,9 +33,9 @@ const Form = () => {
                 <button onClick={handleClick}>agregar</button>
             </form>
            {
-                todos.map((value, index) => (
-                    <Todo todo={value.todo} />
-                ))
+               todos.map((value, index) => (
+                <Todo todo={value.todo} key={index} index={index} deleteTodo={deleteTodo}/>
+             ))
             }
     </>
     )
