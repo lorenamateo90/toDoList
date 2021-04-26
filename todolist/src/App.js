@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Form from './components/Form';
 
 const  App = () => {
 
@@ -9,6 +10,7 @@ const  App = () => {
         <p>
           Aquí va la todolist
         </p>
+        <Form/>
       </div>
     </div>
   );
