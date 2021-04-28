@@ -7,9 +7,6 @@ const  App = () => {
   return (
     <div className="App">
       <div className="App-content">
-        <p>
-          Aquí va la todolist
-        </p>
         <Form/>
       </div>
     </div>
